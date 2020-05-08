@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-end-ytb"
+    }
+  },
+  "defaultProject": "front-end-ytb",
+  "cli": {
+    "analytics": false
+  }
 }
