@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ColorComponent } from './color/color.component';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ColorComponent } from './color/color.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+     FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

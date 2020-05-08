@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorComponent implements OnInit {
 
-  myColor = '';
+  myColor = 'red';
   show = false;
 
 
@@ -16,11 +16,6 @@ export class ColorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeColor(input){
-
-console.log(input.value);
-this.myColor = input.value;
-input.value = '';
-  }
+ 
 
 }

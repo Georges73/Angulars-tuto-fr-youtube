@@ -2,7 +2,10 @@
 
 <div [style.backgroundColor]="myColor">
 
-   Color 
+    {{myColor}}
 </div>
 
-<input #inputColor (change)="changeColor(inputColor)" type="text" class="form-control">
+<input [(ngModel)]="myColor" type="text" class="form-control">
+
+
+le contenu de la propriete color est {{myColor}}
