@@ -16,6 +16,9 @@ export class ColorComponent implements OnInit {
   ngOnInit(): void {
   }
 
- 
+  processReq(message: any){
+
+alert(message);
+  }
 
 }
