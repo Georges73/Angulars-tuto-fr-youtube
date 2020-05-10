@@ -9,6 +9,10 @@ import { CvComponent } from './cvTech/cv/cv.component';
 import { ListeCvComponent } from './cvTech/liste-cv/liste-cv.component';
 import { ItemCvComponent } from './cvTech/item-cv/item-cv.component';
 import { DetailCvComponent } from './cvTech/detail-cv/detail-cv.component';
+import { StyleComponent } from './directive/style/style.component';
+import { ClassComponent } from './directive/class/class.component';
+import { HighlightDirective } from './directive/highlight.directive';
+import { DefaultImagePipe } from './cvTech/default-image.pipe';
 
 
 @NgModule({
@@ -19,7 +23,11 @@ import { DetailCvComponent } from './cvTech/detail-cv/detail-cv.component';
     CvComponent,
     ListeCvComponent,
     ItemCvComponent,
-    DetailCvComponent
+    DetailCvComponent,
+    StyleComponent,
+    ClassComponent,
+    HighlightDirective,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,
