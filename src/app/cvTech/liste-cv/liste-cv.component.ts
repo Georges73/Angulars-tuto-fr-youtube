@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Persons } from 'src/app/Model/persons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-cv',
@@ -10,7 +11,7 @@ export class ListeCvComponent implements OnInit {
 
   @Input() persons: Persons[];
   @Output() selectedPerson = new EventEmitter();
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,13 @@ export class ListeCvComponent implements OnInit {
   selectPerson(selectedPerson){
 
     this.selectedPerson.emit(selectedPerson);
+
+  }
+
+  goHome(){
+
+    const link = ['home'];
+    this.router.navigate(link);
 
   }
 

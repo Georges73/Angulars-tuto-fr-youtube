@@ -13,6 +13,13 @@ import { StyleComponent } from './directive/style/style.component';
 import { ClassComponent } from './directive/class/class.component';
 import { HighlightDirective } from './directive/highlight.directive';
 import { DefaultImagePipe } from './cvTech/default-image.pipe';
+import { HireComponent } from './cvTech/hire/hire.component';
+import { ROUTING } from './routing';
+import { HeaderComponent } from './layout/header/header.component';
+import { DetailComponent } from './cvTech/detail/detail.component';
+import { AddCVComponent } from './cvTech/add-cv/add-cv.component';
+
+
 
 
 @NgModule({
@@ -27,12 +34,18 @@ import { DefaultImagePipe } from './cvTech/default-image.pipe';
     StyleComponent,
     ClassComponent,
     HighlightDirective,
-    DefaultImagePipe
+    DefaultImagePipe,
+    HireComponent,
+    HeaderComponent,
+    DetailComponent,
+    AddCVComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-     FormsModule
+     FormsModule,
+     ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-color',
@@ -11,14 +12,26 @@ export class ColorComponent implements OnInit {
   show = false;
 
 
-  constructor() { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.activatedRoute.params.subscribe(
+     params => {this.myColor = params.default;
+    }
+    );
   }
 
   processReq(message: any){
 
 alert(message);
+  }
+
+  goToCV(){
+
+    const link = ['cv'];
+    this.router.navigate(link);
+
   }
 
 }
