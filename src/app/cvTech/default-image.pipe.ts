@@ -9,7 +9,7 @@ export class DefaultImagePipe implements PipeTransform {
 
     if(!value) {
 
-      return 'barack.png';
+      return 'notfound.jpg';
 
     }
     return value;

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<input type="text" 
+[(ngModel)] ='chaine'
+ class="form-control"
+ (keyup)="search()"
+ >
+
+ <ol>
+    <li
+    *ngFor="let person of searchResult "
+    class="list-group-item" 
+    (click)="selectPerson(person)"
+    >
+
+        <img src="assets/images/{{person.path |defaultImage}}" width="25px" height="25px" alt="{{person.firstName}}"> 
+        
+        {{person.firstName}} {{person.name}}
+        
+        
+        </li>
+        
+
+ </ol>

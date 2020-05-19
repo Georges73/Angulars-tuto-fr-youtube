@@ -18,6 +18,12 @@ import { ROUTING } from './routing';
 import { HeaderComponent } from './layout/header/header.component';
 import { DetailComponent } from './cvTech/detail/detail.component';
 import { AddCVComponent } from './cvTech/add-cv/add-cv.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { ErrorComponent } from './cvTech/error/error.component';
+import { HomeComponent } from './cvTech/home/home.component';
+import { SearchComponent } from './cvTech/search/search.component';
 
 
 
@@ -39,13 +45,24 @@ import { AddCVComponent } from './cvTech/add-cv/add-cv.component';
     HeaderComponent,
     DetailComponent,
     AddCVComponent,
+    ErrorComponent,
+    HomeComponent,
+    SearchComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+     AppRoutingModule,
      FormsModule,
-     ROUTING
+     ROUTING,
+     HttpClientModule,
+
+// The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+// and returns simulated server responses.
+// Remove it when a real server is ready to receive requests.
+HttpClientInMemoryWebApiModule.forRoot(
+  InMemoryDataService, { dataEncapsulation: false }
+)
   ],
   providers: [],
   bootstrap: [AppComponent]

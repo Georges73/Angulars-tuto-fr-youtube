@@ -1,34 +1,88 @@
 import { Injectable } from '@angular/core';
 import { Persons } from './Model/persons';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CvService {
-  private persons: Persons [];
+  private persons: Persons[];
+  private personsURL = 'api/personsDB';
 
-  constructor() {
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
-    this.persons = [
-      new Persons (1,  'gabriella', 'Coupdecoeur', 28, 'gabriella2.jpg',  7777,  'patissiere' ),
-      new Persons (2,  'Achille', 'vanhoutte', 47, 'achille2.jpg',  2222,  'chomeur' ),
-      new Persons (3,  'test', 'test', 57, '',  1111,  'test' )
-                 ];
+  constructor(private http: HttpClient) {
 
-   }
+  }
 
-   getPersons(): Persons[]{
+  getPersons(): Observable<Persons[]> {
+    return this.http.get<Persons[]>(this.personsURL);
+  }
 
+  getFakepers() {
     return this.persons;
+  }
 
-   }
+  getPersonById(id: number): Observable<any> {
 
-   getPersonById(id: number): Persons{
- const p = this.persons.find(per => {
-   // tslint:disable-next-line:triple-equals
-   return per.id == id; });
- 
- return p;
-   }
+    const url = `${this.personsURL}/${id}`;
+    return this.http.get<Persons>(url).pipe( );
+  }
 
+  addPerson(person: Persons): Observable<any> {
+    return this.http.post(this.personsURL, person);
+  }
+
+   /** DELETE: delete the hero from the server */
+   deletePersonne(id: number) {
+
+    const url = `${this.personsURL}/${id}`;
+
+    return this.http.delete(url).pipe();
+  }
+
+  updatePersonne(pers: Persons): Observable<any> {
+    console.log('update was here');
+    return this.http.put(this.personsURL, pers, this.httpOptions).pipe();
+  }
+
+  /* ---------------------------------------------------------------------------------------------*/
+
+  findByName(term: string): Observable<Persons[]>{
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Persons[]>(`${this.personsURL}/?name=${term}`).pipe(
+      tap(x => x.length ?
+         this.log(`found heroes matching "${term}"`) :
+         this.log(`no heroes matching "${term}"`)),
+      catchError(this.handleError<Persons[]>('searchHeroes', []))
+    );
+  }
+
+
+  
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  /** Log a HeroService message with the MessageService */
+  private log(message: string) {
+    // this.messageService.add(`HeroService: ${message}`);
+  }
 }

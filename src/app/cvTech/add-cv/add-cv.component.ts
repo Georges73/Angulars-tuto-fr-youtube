@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Persons } from 'src/app/Model/persons';
 import { NgForm } from '@angular/forms';
+import { CvService } from 'src/app/cv.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-cv',
@@ -9,13 +11,20 @@ import { NgForm } from '@angular/forms';
 })
 export class AddCVComponent implements OnInit {
   // formulare: Persons;
-  constructor() {}
+  errormessage = '';
+  constructor(private cvService: CvService, private router: Router) {}
 
   ngOnInit(): void {}
 
   add(form: NgForm) {
+    this.cvService.addPerson(form.value).subscribe((res) => { const link = ['cv']; this.router.navigate(link); },
+    (error) => {
+      this.errormessage = 'probleme de connection please contact your admin';
+    }
+
+    );
     console.log( form.value);
-    // console.log( form.value);
+
   }
 
   onSubmit(f: NgForm) {

@@ -24,6 +24,7 @@ export class DetailCvComponent implements OnInit {
   }
 
   moreInfo(){
+    console.log('moreinfo' + this.person.id);
     const link = ['cv', this.person.id];
     this.router.navigate(link);
   }

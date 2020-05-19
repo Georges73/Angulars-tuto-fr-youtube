@@ -12,7 +12,8 @@
                    <div class="main">
                        <h3 class="name">{{person.firstName}} {{person.name}}</h3>
                        <p class="profession">{{person.job}}</p>
-                       <p class="text-center">"I'm the new Sinatra, and since I made it here I can make it anywhere, yeah, they love me everywhere"</p>
+                       <h4 class="text-center">{{person.age}}</h4>
+                       <p class="text-center">"text for instructions"</p>
                    </div>
                    <div class="footer">
                        <i class="fa fa-mail-forward"></i> Auto Rotation
@@ -25,26 +26,26 @@
                </div>
                <div class="content">
                    <div class="main">
-                       <h4 class="text-center">{{person.age}}</h4>
+                       <h4 class="text-center">{{person.cin}}</h4>
                        <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
 
                        <div class="stats-container">
                            <div class="stats">
                                <h4>235</h4>
                                <p>
-                                   Followers
+                                   cases
                                </p>
                            </div>
                            <div class="stats">
                                <h4>114</h4>
                                <p>
-                                   Following
+                                   open cases
                                </p>
                            </div>
                            <div class="stats">
                                <h4>35</h4>
                                <p>
-                                   Projects
+                                   sla score
                                </p>
                            </div>
                        </div>
@@ -53,8 +54,8 @@
                </div>
                <div class="footer">
                    <div class="social-links text-center">
-                      <button (click)="hireperson()" class="btn btn-succes">Hire</button>
-                      <button (click)="moreInfo()" class="btn btn-primary">More info</button>
+                      <button (click)="hireperson()" class="btn btn-outline-primary">Hire</button>
+                      <button (click)="moreInfo()" class="btn btn-primary">Update</button>
                    </div>
                </div>
            </div> <!-- end back panel -->

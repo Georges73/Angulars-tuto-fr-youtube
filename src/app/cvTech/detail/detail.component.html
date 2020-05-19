@@ -1,4 +1,33 @@
-<div class="d-flex justify-content-center" *ngIf="personne">
+
+
+  <div *ngIf="personne">
+    <h2>{{personne.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{personne.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="personne.name" placeholder="name"/>
+      </label>
+      <label>First Name:
+        <input [(ngModel)]="personne.firstName" placeholder="firstName"/>
+      </label>
+      <label>Job:
+        <input [(ngModel)]="personne.job" placeholder="job"/>
+      </label>
+      <label>age:
+        <input [(ngModel)]="personne.age" placeholder="age"/>
+      </label>
+      <label>CIN:
+        <input [(ngModel)]="personne.cin" placeholder="cin"/>
+      </label>
+     
+
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
+  </div>
+
+  <!--
+  <div class="d-flex justify-content-center" *ngIf="personne">
     <div class="col-lg-8 push-lg-4">
       <div class="tab-content p-b-3">
         <div class="tab-pane active" id="profile">
@@ -44,14 +73,22 @@
                   class="btn btn-danger" (click)="deletePersonne()">
                   Delete
                 </button>
-  <!--              <button class="btn btn-primary" (click)="updatePersonne(personne.id)">-->
-  <!--                Update-->
-  <!--              </button>-->
+                <button
+                  
+                  class="btn btn-primary" (click)="updatePersonne(personne.id)">
+                  Update
+                </button>
+
+                <button (click)="goBack()">go back</button>
+                <button class="btn btn-primary" (click)="updatePersonne(personne.id)">
+                  Update
+               </button>
               </div>
             </div>
           </div>
-          <!--/row-->
+          
         </div>
       </div>
     </div>
   </div>
+-->
